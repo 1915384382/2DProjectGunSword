@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     public float chongfengForce = 500;
     public float chongfengAmout = 5f;
 
+    public CircleCollider2D circle;
+
     private Rigidbody2D rb2D;
     private bool jumping = false;
     private bool isdead = false;
@@ -56,7 +58,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if ((coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "Ground") && coll.gameObject.transform.position.y < transform.position.y && isGrounded)
+        if ((coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "Ground") && coll.gameObject.transform.position.y < transform.position.y && isGrounded && jumping)
         {
             jumping = false;
             trail.enabled = false;
@@ -153,23 +155,20 @@ public class Player : MonoBehaviour
         //    jumping = false;
         //    anim.SetBool("jump", false);
         //}
-        if (!isGrounded && jumping && NowJumpTime>=0)
+        if (Input.GetKeyDown("k"))
         {
-            if (Input.GetKeyDown("k"))
-            {
-                rb2D.AddForce(new Vector2(0f, JumpHeight));
-                NowJumpTime--;
-            }
-        }
-
-        if (isGrounded && !jumping)
-        {
-            if (Input.GetKeyDown("k"))
+            if (isGrounded && !jumping)
             {
                 rb2D.AddForce(new Vector2(0f, JumpHeight));
                 NowJumpTime--;
                 anim.SetBool("jump", true);
                 trail.enabled = true;
+                jumping = true;
+            }
+            else if (!isGrounded && jumping && NowJumpTime > 0)
+            {
+                rb2D.AddForce(new Vector2(0f, JumpHeight));
+                NowJumpTime--;
             }
         }
     }
@@ -214,12 +213,15 @@ public class Player : MonoBehaviour
     }
     void Flip()
     {
+        if (isAttack)
+            return;
         faceright = !faceright;
         //transform.Rotate(0,180,0);
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+    bool isAttack = false;
     float shootCD = 0.1f;
     float shootCDTimer = 0f;
     bool canShoot = true;
@@ -255,6 +257,7 @@ public class Player : MonoBehaviour
                 anim.speed = 1;
                 anim.SetBool("cut", true);
             }
+            isAttack = true;
             canCut = false;
         }
     }
@@ -262,5 +265,25 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("cut", false);
         canCut = true;
+        isAttack = false;
+    }
+    void DoSwordHurt() 
+    {
+        Collider2D[] targets = Physics2D.OverlapCircleAll((Vector2)circle.transform.position+circle.offset,circle.radius);
+        for (int i = 0; i < targets.Length; i++)
+        {
+            Actor actor = targets[i].transform.GetComponent<Actor>();
+            Enemy enemy = targets[i].transform.GetComponent<Enemy>();
+            Player player = targets[i].transform.GetComponent<Player>();
+            if (actor != null && enemy!=null)
+            {
+                actor.Hurt(20);
+            }
+            if (actor!=null)
+            {
+                if (player == null)
+                    EffectManager.Instance.ShowEffect("Bomb", actor.transform.position);
+            }
+        }
     }
 }
