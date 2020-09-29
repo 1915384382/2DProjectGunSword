@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3399607802478011941}
   - component: {fileID: 3399607802478011938}
   - component: {fileID: 1643620604164187701}
+  - component: {fileID: 5264168468743331976}
+  - component: {fileID: 5264168468743331983}
   m_Layer: 9
   m_Name: PlayerSword
   m_TagString: canReduceHP
@@ -243,7 +245,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.5
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -251,8 +253,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: 0.004386902
+        value: 0.1808548
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -300,6 +302,36 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &5264168468743331976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643620604164187706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fd8a3798474b549a377d4ac02f96ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  skillType: 0
+  skillCode: 0
+  skillName: 
+--- !u!114 &5264168468743331983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643620604164187706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1404619f83e62ec48a1f154fd4dd44d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRewinding: 0
+  recordTime: 0
 --- !u!1 &1729881881258776371
 GameObject:
   m_ObjectHideFlags: 0

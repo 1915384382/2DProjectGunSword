@@ -61,7 +61,6 @@ public class Player : MonoBehaviour
         if ((coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "Ground") && coll.gameObject.transform.position.y < transform.position.y && isGrounded && jumping)
         {
             jumping = false;
-            trail.enabled = false;
             NowJumpTime = JumpTime;
             anim.SetBool("jump", false);
         }
@@ -71,12 +70,33 @@ public class Player : MonoBehaviour
         if ((collision.gameObject.tag == "Obstacle" || collision.gameObject.tag == "Ground") && collision.gameObject.transform.position.y < transform.position.y && isGrounded &&jumping)
         {
             jumping = false;
-            trail.enabled = false;
             NowJumpTime = JumpTime;
             anim.SetBool("jump", false);
         }
     }
     bool quickAttack = false;
+    void DoReleaseSkill() 
+    {
+        string skillCode = "";
+        if (Input.GetKeyDown( KeyCode.Alpha1))
+        {
+            KeyCode.Alpha1.ToString();
+            skillCode = "Alpha1";
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            skillCode = "Alpha2";
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            skillCode = "Alpha3";
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            skillCode = "Alpha4";
+        }
+        SkillManager.Instance.UseSkill(0);
+    }
     void Update()
     {
         if (isdead == false && !isChongFeng)
@@ -96,8 +116,11 @@ public class Player : MonoBehaviour
             {
                 quickAttack = !quickAttack;
             }
-
         }
+        //if (Input.GetKeyDown( KeyCode.Escape))
+        //{
+        //    Time.timeScale *= -1;
+        //}
     }
     void Move(ref float move) 
     {
@@ -162,10 +185,10 @@ public class Player : MonoBehaviour
                 rb2D.AddForce(new Vector2(0f, JumpHeight));
                 NowJumpTime--;
                 anim.SetBool("jump", true);
-                trail.enabled = true;
+                //trail.enabled = true;
                 jumping = true;
             }
-            else if (!isGrounded && jumping && NowJumpTime > 0)
+            else if (!isGrounded && NowJumpTime > 0)
             {
                 rb2D.AddForce(new Vector2(0f, JumpHeight));
                 NowJumpTime--;
@@ -238,9 +261,7 @@ public class Player : MonoBehaviour
         {
             shootCDTimer += Time.deltaTime;
             if (shootCDTimer>=shootCD)
-            {
                 canShoot = true;
-            }
         }
     }
     void Cut()

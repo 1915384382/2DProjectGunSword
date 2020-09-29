@@ -4,41 +4,65 @@ using UnityEngine;
 
 public enum SkillType
 {
+    None,
     MultipleGun,
     CrazySword,
 }
 public class Skills : MonoBehaviour
 {
+    public Player player;
     public SkillType skillType;
-    public void InitSkill(SkillType _skillType) 
+    public int skillCode;
+    public string skillName;
+
+    public virtual void InitSkill(Player _player, SkillType _skillType,int _skillcode,string _skillName) 
     {
+        player = _player;
         skillType = _skillType;
+        skillCode = _skillcode;
+        skillName = _skillName;
+        SkillPool.Instance.GetSkill(skillName,player.transform);
     }
 
     public void UseSkill(int type)
     {
         SkillManager.Instance.UseSkill((SkillType)type);
     }
-    // Start is called before the first frame update
-    void Start()
+    protected bool isRunning;
+    public virtual void OnEnter() { isRunning = true; }
+    public virtual void OnFinish() { isRunning = false; }
+    public void RegistSkill(SkillType type) 
     {
-        
-    }
-    bool isUsingSkill = false;
-    // Update is called once per frame
-    void Update()
-    {
-        if (!isUsingSkill)
+        switch (type)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                UseSkill(1);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                UseSkill(1);
-            }
-            isUsingSkill = true;
+            case SkillType.None:
+                CrazySword sword = new CrazySword();
+                break;
+            case SkillType.MultipleGun:
+                break;
+            case SkillType.CrazySword:
+                break;
+            default:
+                break;
         }
+    }
+}
+public class CrazySword : Skills
+{
+    public override void InitSkill(Player _player, SkillType _skillType, int _skillcode, string _skillName)
+    {
+        base.InitSkill(_player, _skillType, _skillcode, _skillName);
+
+
+    }
+    public override void OnEnter()
+    {
+        base.OnEnter();
+
+    }
+    public override void OnFinish()
+    {
+        base.OnFinish();
+
     }
 }

@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour
 {
-    public static EffectManager Instance;
-
+    private static EffectManager minstance;
+    public static EffectManager Instance
+    {
+        get
+        {
+            if (minstance == null)
+            {
+                return new EffectManager();
+            }
+            return minstance;
+        }
+    }
     private void Awake()
     {
-        Instance = this;
+        minstance = this;
     }
     public void ShowEffect(string effectName,Vector3 _position) 
     {

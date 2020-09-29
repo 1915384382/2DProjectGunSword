@@ -2984,6 +2984,7 @@ MonoBehaviour:
     type: 3}
   thePool: []
   startCount: 30
+  continueCount: 5
 --- !u!4 &1083380070
 Transform:
   m_ObjectHideFlags: 0
@@ -4524,6 +4525,7 @@ GameObject:
   - component: {fileID: 1844286849}
   - component: {fileID: 1844286848}
   - component: {fileID: 1844286847}
+  - component: {fileID: 1844286851}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4570,6 +4572,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1844286851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844286846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1566b933abadced4cb7fb6257f1b103a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 10
+  RotateSpeed: 100
+  ShouldLimit: 0
+  Limit: 100
 --- !u!1 &1879108961
 GameObject:
   m_ObjectHideFlags: 0
@@ -5366,7 +5384,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6899872450674820797}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5264168468743331976
+--- !u!114 &5264168468743331983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5375,10 +5393,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5264168468743331975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fd8a3798474b549a377d4ac02f96ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 1404619f83e62ec48a1f154fd4dd44d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
+  isRewinding: 0
+  recordTime: 999999
 --- !u!4 &5264168468743568551 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1643620604164684314, guid: 4ab1444d8076e9048ac9559c84357250,
@@ -5776,16 +5795,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1643620604164187701, guid: 4ab1444d8076e9048ac9559c84357250,
-        type: 3}
-      propertyPath: m_Time
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1643620604164187701, guid: 4ab1444d8076e9048ac9559c84357250,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.36170197
-      objectReference: {fileID: 0}
     - target: {fileID: 1643620604164187706, guid: 4ab1444d8076e9048ac9559c84357250,
         type: 3}
       propertyPath: m_Name
@@ -5851,12 +5860,13 @@ PrefabInstance:
       propertyPath: bulletPool
       value: 
       objectReference: {fileID: 1083380069}
-    - target: {fileID: 6899872450853486160, guid: 4ab1444d8076e9048ac9559c84357250,
+    - target: {fileID: 5264168468743331983, guid: 4ab1444d8076e9048ac9559c84357250,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: recordTime
+      value: 9999999
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5264168468743331983, guid: 4ab1444d8076e9048ac9559c84357250, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4ab1444d8076e9048ac9559c84357250, type: 3}
 --- !u!212 &7798682127377734468
 SpriteRenderer:

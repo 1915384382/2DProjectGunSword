@@ -4,10 +4,28 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
+    private static ObjectPool minstance;
+    public static ObjectPool Instance
+    {
+        get
+        {
+            if (minstance == null)
+            {
+                return new ObjectPool();
+            }
+            return minstance;
+        }
+    }
+    private void Awake()
+    {
+        minstance = this;
+    }
     public GameObject objectToPool;
+    public Dictionary<string, GameObject> objectPools = new Dictionary<string, GameObject>();
 
     public List<GameObject> thePool = new List<GameObject>();
-    public int startCount;
+    public int startCount = 30;
+    public int continueCount = 5;
 
     void Start()
     {
@@ -20,7 +38,7 @@ public class ObjectPool : MonoBehaviour
     }
     public GameObject SpawnObject(Vector3 position,Quaternion rotation) 
     {
-        GameObject ToReturn;
+        GameObject ToReturn = null;
         if (thePool.Count>0)
         {
             ToReturn = thePool[0];
@@ -28,16 +46,30 @@ public class ObjectPool : MonoBehaviour
         }
         else
         {
-            ToReturn = Instantiate(objectToPool);
-            thePool.Add(ToReturn);
-            ToReturn.SetActive(false);
-            ToReturn.transform.parent = transform;
+            if (AddToPool())
+            {
+                ToReturn = thePool[0];
+                thePool.RemoveAt(0);
+            }
         }
         ToReturn.SetActive(true);
         ToReturn.transform.position = position;
         ToReturn.transform.rotation = rotation;
-
         return ToReturn;
+    }
+    bool AddToPool() 
+    {
+        for (int i = 0; i < continueCount; i++)
+        {
+            GameObject Return = Instantiate(objectToPool);
+            thePool.Add(Return);
+            Return.SetActive(false);
+            Return.transform.parent = transform;
+        }
+        if (thePool.Count>0)
+            return true;
+        else
+            return false;
     }
     public void RevertObject(GameObject obj) 
     {

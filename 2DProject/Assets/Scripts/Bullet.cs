@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         gameplayer = GameManager.Instance.gamePlayer;
-        bulletPool = gameplayer.bulletPool;
+        bulletPool = ObjectPool.Instance;
         if (gameplayer != null)
         {
             if (gameplayer.faceright)
