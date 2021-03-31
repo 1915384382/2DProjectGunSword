@@ -47,16 +47,16 @@ public class Enemy : MonoBehaviour
             //}
         }
     }
-    //void DoDie() 
-    //{
-    //    anim.SetBool("dead", true);
-    //    isdead = true;
-    //    if (collider != null)
-    //        collider.enabled = false;
-    //    rb.velocity = Vector2.zero;
-    //    rb.gravityScale = 0;
-    //    Invoke("DoSmall", 2);
-    //}
+    void DoDie()
+    {
+        anim.SetBool("dead", true);
+        isdead = true;
+        if (collider != null)
+            collider.enabled = false;
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = 0;
+        Invoke("DoSmall", 2);
+    }
     //void DoSmall() 
     //{
     //    transform.DOScale(0.01f, 1).OnComplete(Dead);// => Dead;

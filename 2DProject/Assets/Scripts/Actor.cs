@@ -5,18 +5,11 @@ using DG.Tweening;
 
 public class Actor : MonoBehaviour
 {
-    private Collider2D collider;
-    Animator anim;
     public float HP = 100f;
     public float MaxHP = 100f;
     bool isdead;
     void Start()
     {
-
-        anim = this.gameObject.GetComponent<Animator>();
-        anim.SetBool("walk", false);//Walking animation is deactivated
-        anim.SetBool("dead", false);//Dying animation is deactivated
-        anim.SetBool("jump", false);//Jumping animation is deactivated
     }
 
     void Update()
@@ -26,6 +19,7 @@ public class Actor : MonoBehaviour
     #region 受伤 死亡
     public void Hurt(int value)
     {
+        GameManager.Instance.mainCamara.DOShakePosition(GameManager.Instance.duration, GameManager.Instance.strength, GameManager.Instance.vibrate, GameManager.Instance.randomnes);
         HP -= value;
         if (HP <= 0)
         {
@@ -34,7 +28,6 @@ public class Actor : MonoBehaviour
     }
     void DoDie()
     {
-        anim.SetBool("dead", true);
         isdead = true;
         if (GetComponent<Collider2D>() != null)
             GetComponent<Collider2D>().enabled = false;

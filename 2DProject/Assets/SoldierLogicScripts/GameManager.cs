@@ -17,11 +17,17 @@ public class GameManager : MonoBehaviour
             return minstance;
         }
     }
+    public Camera mainCamara;
     private void Awake()
     {
         minstance = this;
     }
     public Player gamePlayer;
+    public float duration;
+    public float strength;
+    public int vibrate;
+    public float randomnes;
+
 
     private int instanceID = 100;
     public int GetInstance() 

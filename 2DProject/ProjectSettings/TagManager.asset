@@ -4,10 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
-  - Ground
-  - Obstacle
-  - canReduceHP
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,9 +14,18 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
+  - Level
+  - Enemy
+  - Usable
+  - Interactable
+  - IgnorePlayer
   - Player
-  - NoColliderDetectiveBullet
+  - Cameras
+  - LitSprites
+  - Destructable
+  - EnemyWeapon
+  - BossWeakPoint
+  - Bullet
   - 
   - 
   - 
@@ -30,18 +36,18 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerDrop
+  - Platform
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Water
+    uniqueID: 2116099231
+    locked: 0
+  - name: Level
+    uniqueID: 2344118779
+    locked: 0
+  - name: Front
+    uniqueID: 3405993979
     locked: 0

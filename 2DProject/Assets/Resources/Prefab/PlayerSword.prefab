@@ -12,12 +12,10 @@ GameObject:
   - component: {fileID: 1643620604185336858}
   - component: {fileID: 1643620604168235994}
   - component: {fileID: 1643620604154828282}
-  - component: {fileID: 3399607802258771827}
   - component: {fileID: 3399607802478011941}
   - component: {fileID: 3399607802478011938}
-  - component: {fileID: 1643620604164187701}
   - component: {fileID: 5264168468743331976}
-  - component: {fileID: 5264168468743331983}
+  - component: {fileID: 5264168468743331984}
   m_Layer: 9
   m_Name: PlayerSword
   m_TagString: canReduceHP
@@ -133,38 +131,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3399607802258771827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643620604164187706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dbddc712bbcadd4599f9b0da5b725c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RayCastHit2DLayer:
-    serializedVersion: 2
-    m_Bits: 1335
-  maxspeed: 5
-  faceright: 0
-  Sword: {fileID: 6899872450853486163}
-  shoot: {fileID: 8265772564845228219}
-  GroundCheck: {fileID: 237284144123085580}
-  bullet: {fileID: 6881856354752002579, guid: e0ff8542b73f57443863a10d68566136, type: 3}
-  bulletPool: {fileID: 0}
-  JumpHeight: 300
-  isGrounded: 0
-  checkGround: {fileID: 3399607803150474032}
-  playerLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  weaponType: 1
-  chongfengForce: 500
-  chongfengAmout: 5
-  circle: {fileID: 6899872451089538768}
 --- !u!61 &3399607802478011941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178,7 +144,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.027791023, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -189,7 +155,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.55558205, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &3399607802478011938
 MonoBehaviour:
@@ -205,103 +171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   MaxHP: 100
---- !u!96 &1643620604164187701
-TrailRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643620604164187706}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 77d08210df254d845885518314593544, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Time: 0.2
-  m_Parameters:
-    serializedVersion: 3
-    widthMultiplier: 1
-    widthCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0.004386902
-        value: 0.1808548
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    colorGradient:
-      serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
-      atime2: 0
-      atime3: 0
-      atime4: 0
-      atime5: 0
-      atime6: 0
-      atime7: 0
-      m_Mode: 0
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-    numCornerVertices: 0
-    numCapVertices: 0
-    alignment: 0
-    textureMode: 0
-    shadowBias: 0.5
-    generateLightingData: 0
-  m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
-  m_Emitting: 1
 --- !u!114 &5264168468743331976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +187,7 @@ MonoBehaviour:
   skillType: 0
   skillCode: 0
   skillName: 
---- !u!114 &5264168468743331983
+--- !u!114 &5264168468743331984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -327,11 +196,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1643620604164187706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1404619f83e62ec48a1f154fd4dd44d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 575b8afde42ee7b4b8eef977c09a686b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRewinding: 0
-  recordTime: 0
+  moveSpeed: 5
+  VelocityX: 0
+  smothAddTime: 0.09
+  smothMinusTime: 0.09
+  InputOffset: {x: 0.2, y: 0}
+  JumpingSpeed: 5
+  fallMultiplier: 3
+  lowJumpMultiplier: 1
+  hasDoubleJump: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  pointOffSet: {x: 0.03, y: -0.5}
+  size: {x: 0.5, y: 0.2}
+  DashCD: 1
+  DashForce: 15
+  FlyDashForce: 5
+  DashTime: 0.1
 --- !u!1 &1729881881258776371
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +303,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.05}
+  m_Size: {x: 0.3581972, y: 0.05}
   m_EdgeRadius: 0
 --- !u!114 &3399607803150474033
 MonoBehaviour:
@@ -432,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9fad2f8c827b7469c9103911e1d9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3399607802258771827}
+  player: {fileID: 0}
 --- !u!1 &6899872450223468217
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.62, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1.53}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!96 &6899872450223468219
@@ -518,7 +403,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.6142864
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -623,14 +508,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6899872451089538772}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.62966585, y: 0.48688892, z: 1}
   m_Children:
   - {fileID: 6899872450223468216}
   m_Father: {fileID: 6899872450853486163}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &6899872451089538769
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -670,8 +555,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -901772005396891455, guid: 366e4d9d8444a5a4194187ceb3260980,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: f2ea487f62fd65944b6389c00e56eb6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -695,18 +579,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00000059604645, y: 0}
+  m_Offset: {x: 0.013390303, y: 0.013389111}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.63, y: 1.39}
+    oldSize: {x: 0.47, y: 3.34}
     newSize: {x: 2.79, y: 0.77}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.2200625, y: 0.7136011}
+  m_Size: {x: 0.30126143, y: 3.1771755}
   m_EdgeRadius: 0
 --- !u!58 &6899872451089538768
 CircleCollider2D:
