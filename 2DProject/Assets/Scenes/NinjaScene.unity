@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b40731922433f44b874330a2022d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1000
   MaxHP: 100
 --- !u!50 &444386723
 Rigidbody2D:
@@ -1647,10 +1647,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamara: {fileID: 2136161192}
   gamePlayer: {fileID: 0}
-  duration: 0.5
-  strength: 10
-  vibrate: 0
-  randomnes: 50
+  duration: 0.1
+  strength: 0.02
+  vibrate: 10
+  randomnes: 900
 --- !u!4 &960462091
 Transform:
   m_ObjectHideFlags: 0
@@ -3602,7 +3602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b40731922433f44b874330a2022d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1000
   MaxHP: 100
 --- !u!50 &2069393045
 Rigidbody2D:
