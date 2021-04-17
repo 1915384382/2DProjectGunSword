@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsJumping && isInAir && !hasDoubleJump && canJump)
+        if (Input.GetMouseButtonDown(1) && IsJumping && isInAir && !hasDoubleJump && canJump)
         {
             rig.velocity = new Vector2(rig.velocity.x, JumpingSpeed);
             hasDoubleJump = true;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
             else
                 dir.x = -1;
         }
-        if (Input.GetAxisRaw("Fire2") > 0 && !WasDashed && canDash && !hasDashed)
+        if (Input.GetAxisRaw("Jump") > 0 && !WasDashed && canDash && !hasDashed)
         {
             ResetDashCD();
             StartCoroutine(DoDash());
@@ -185,8 +185,8 @@ public class PlayerController : MonoBehaviour
         {
             if (!isCrouch)
             {
-                if (!startAttack)
-                    anim.SetBool("walk", true);//Walking animation is activated
+                //if (!startAttack)
+                //    anim.SetBool("walk", true);//Walking animation is activated
 
                 rig.velocity = new Vector2(Mathf.SmoothDamp(rig.velocity.x, moveSpeed * Time.fixedDeltaTime * 60, ref VelocityX, smothAddTime), rig.velocity.y);
                 if (startAttack && isGrounded)
@@ -203,8 +203,8 @@ public class PlayerController : MonoBehaviour
         {
             if (!isCrouch)
             {
-                if (!startAttack)
-                    anim.SetBool("walk", true);//Walking animation is activated
+                //if (!startAttack)
+                //    anim.SetBool("walk", true);//Walking animation is activated
                 rig.velocity = new Vector2(Mathf.SmoothDamp(rig.velocity.x, moveSpeed * Time.fixedDeltaTime * 60 * -1, ref VelocityX, smothMinusTime), rig.velocity.y);
                 if (startAttack && isGrounded)
                 {
@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            anim.SetBool("walk", false);
+            //anim.SetBool("walk", false);
             rig.velocity = new Vector2(Mathf.SmoothDamp(rig.velocity.x, 0, ref VelocityX, smothMinusTime), rig.velocity.y);
         }
     }
@@ -250,11 +250,11 @@ public class PlayerController : MonoBehaviour
         //    IsJumping = true;
         //    RestJumpTime--;
         //}
-        if (Input.GetAxis("Jump") == 1&& !hasDoubleJump)
+        if (Input.GetAxis("Fire2") == 1&& !hasDoubleJump)
         {
             if (!IsJumping)
             {
-                anim.SetBool("jump", true);
+                //anim.SetBool("jump", true);
                 rig.velocity = new Vector2(rig.velocity.x, JumpingSpeed);
                 IsJumping = true;
 
@@ -268,7 +268,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             IsJumping = false;
-            anim.SetBool("jump", false);
+            //anim.SetBool("jump", false);
             hasDoubleJump = false;
         }
         if (rig.velocity.y < 0)//下落的时候

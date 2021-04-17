@@ -44,8 +44,8 @@ public class NinjaPlayAnimCtrl : MonoBehaviour
         state = State.Idle;
         anim.Play("Idle");
     }
-    bool CanAttack { get { return SwordState && !controller.startAttack && !controller.isCrouch && !controller.WasDashed; } }
-    bool CanSkill { get { return SwordState && !controller.startAttack && !controller.isCrouch && !controller.WasDashed && canUseSkill; } }
+    bool CanAttack { get { return SwordState && !controller.startAttack && !controller.WasDashed; } }
+    bool CanSkill { get { return SwordState && !controller.startAttack && !controller.WasDashed && canUseSkill; } }
     bool CanMove { get { return controller.isGrounded && !controller.isCrouch && !controller.startAttack; } }
     bool CanCrouch { get { return !controller.startAttack && !controller.IsJumping; } }
     bool CanChangeState { get { return !controller.startAttack; } }
@@ -176,6 +176,7 @@ public class NinjaPlayAnimCtrl : MonoBehaviour
     {
         ChangeAnimatorState(state);
         controller.startAttack = true;
+        controller.isCrouch = false;
         currAttackState = state.ToString();
     }
     public void AttackAnimTrigger()
